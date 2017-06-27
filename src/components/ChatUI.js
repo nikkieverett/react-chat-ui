@@ -1,13 +1,18 @@
 import React from 'react';
+import Input from './Input.js';
+import Messages from './Messages.js';
 
-class ChatRoom extends React.Component {
+
+class ChatUI extends React.Component {
   render() {
     return (
-      <div className="App">
-
+      <div className="chat-container">
+        <h1>I'm the chat ui</h1>
+        <Messages />
+        <Input />
       </div>
     );
   }
 }
 
-export default ChatRoom;
+export default ChatUI;
