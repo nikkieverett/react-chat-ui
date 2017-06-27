@@ -1,4 +1,4 @@
-var ReduxThunk = require('redux-thunk')
+var ReduxThunk = require('redux-thunk');
 var moment = require('moment');
 import { applyMiddleware, createStore } from 'redux';
 

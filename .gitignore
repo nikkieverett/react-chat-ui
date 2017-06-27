@@ -1,5 +1,8 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
+react-chat-ui-firebase-adminsdk-oskw8-fbb89ef4ca.json
+firebase-service-account
+
 # dependencies
 /node_modules
 
