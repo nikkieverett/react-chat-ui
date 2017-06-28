@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
@@ -11,14 +11,13 @@ import LoginUI from './components/LoginUI.js';
 class App extends React.Component {
   render() {
     return (
-      <Router>
+      <Router history={this.history}>
         <div className="page-container">
           <Route path="/chat" component={ChatUI}/>
           <Route path="/messages" component={MessageList}/>
           <Route exact path="/" component={LoginUI}/>
         </div>
       </Router>
-
     );
   }
 }
