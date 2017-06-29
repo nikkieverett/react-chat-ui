@@ -7,7 +7,6 @@ class LoginUI extends React.Component{
     super();
     this.state = {
       input: '',
-      userName: ''
     }
   }
   handleChange(evt){
@@ -18,16 +17,12 @@ class LoginUI extends React.Component{
   handleKeyUp(evt){
     if(evt.keyCode === 13){
       this.setState({
-        userName: this.state.input,
         input: ''
       })
     }
   }
   handleClick(){
-    this.setState({
-      userName: this.state.input,
-      input: ''
-    })
+    this.props.onChange(this.state.input);
   }
   render() {
     return (

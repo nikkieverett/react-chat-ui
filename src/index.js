@@ -1,21 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, PropsRoute, Route } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
 import ChatUI from './components/ChatUI.js';
-import MessageList from './components/MessageList.js';
 import LoginUI from './components/LoginUI.js';
 
 class App extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      userName: ''
+    }
+  }
+  handleChange(userName){
+    console.log('inside index handleChange()',userName);
+    this.setState({
+      userName: userName
+    })
+  }
   render() {
+    console.log('state of index.js', this.state);
     return (
       <Router history={this.history}>
         <div className="page-container">
-          <Route path="/chat" component={ChatUI}/>
-          <Route path="/messages" component={MessageList}/>
-          <Route exact path="/" component={LoginUI}/>
+          <Route path="/chat" render={() => <ChatUI userName={this.state.userName}/>}/>
+          <Route exact path="/" render={() => <LoginUI onChange={(userName) => this.handleChange(userName)}/>}/>
         </div>
       </Router>
     );

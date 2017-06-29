@@ -29,7 +29,7 @@ class ChatUI extends React.Component {
     return (
       <div className="chat-container">
         <h1>I'm the chat ui</h1>
-        <Messages messages={this.state.messages}/>
+        <Messages messages={this.state.messages} userName={this.props.userName}/>
         <input
           placeholder="type message here"
           value={this.state.input}
