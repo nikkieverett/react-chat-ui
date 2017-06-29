@@ -38,7 +38,7 @@ class LoginUI extends React.Component{
           placeholder="Your name"
           onChange={(evt) => this.handleChange(evt)}
           onKeyUp={(evt) => this.handleKeyUp(evt)} />
-        <Link to="/messages"><button
+        <Link to="/chat"><button
           type="submit"
           onClick={() => this.handleClick()}>
           Start Chatting
