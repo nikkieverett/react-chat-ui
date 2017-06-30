@@ -26,8 +26,7 @@ class Messages extends React.Component{
     let messages = this.state.messages.map((x, i) => {
       return(
         <div key={x + i} className="bubble">
-          <div className="user">{x.username}</div>
-          <div className="message">{x.message}</div>
+          <span>{x.username}:</span> {x.message}
         </div>
       )
     })
