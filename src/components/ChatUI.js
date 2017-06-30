@@ -1,5 +1,4 @@
 import React from 'react';
-import Input from './Input.js';
 import Messages from './Messages.js';
 
 class ChatUI extends React.Component {

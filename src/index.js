@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, PropsRoute, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
@@ -15,13 +15,11 @@ class App extends React.Component {
     }
   }
   handleChange(userName){
-    console.log('inside index handleChange()',userName);
     this.setState({
       userName: userName
     })
   }
   render() {
-    console.log('state of index.js', this.state);
     return (
       <Router history={this.history}>
         <div className="page-container">
