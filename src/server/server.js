@@ -1,21 +1,14 @@
-var ReduxThunk = require('redux-thunk');
+import * as firebase from 'firebase';
 var moment = require('moment');
-import { applyMiddleware, createStore } from 'redux';
-
-var serviceAccount = require("../../react-chat-ui-firebase-adminsdk-oskw8-fbb89ef4ca.json");
-
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://react-chat-ui.firebaseio.com"
-});
 
 moment().format();
 
-/*admin.initializeApp({
-  credential: admin.credential.cert({
-    projectId: "<PROJECT_ID>",
-    clientEmail: "foo@<PROJECT_ID>.iam.gserviceaccount.com",
-    privateKey: "-----BEGIN PRIVATE KEY-----\n<KEY>\n-----END PRIVATE KEY-----\n"
-  }),
-  databaseURL: "https://<DATABASE_NAME>.firebaseio.com"
-});*/
+var config = {
+  apiKey: "AIzaSyCO1Zp5x6tt9jSZU8LrzmfdVIVqKsiA-7Q",
+  authDomain: "react-chat-ui-8198a.firebaseapp.com",
+  databaseURL: "https://react-chat-ui-8198a.firebaseio.com"
+};
+
+firebase.initializeApp(config);
+
+export default firebase;

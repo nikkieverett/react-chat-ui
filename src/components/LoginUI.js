@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class LoginUI extends React.Component{
   constructor(){
@@ -15,9 +16,8 @@ class LoginUI extends React.Component{
   }
   handleKeyUp(evt){
     if(evt.keyCode === 13){
-      this.setState({
-        input: ''
-      })
+      this.props.onChange(this.state.input);
+      this.props.history.push('/chat')
     }
   }
   handleClick(){
@@ -43,4 +43,4 @@ class LoginUI extends React.Component{
   }
 }
 
-export default LoginUI;
+export default withRouter(LoginUI);

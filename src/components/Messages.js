@@ -1,20 +1,39 @@
 import React from 'react';
+import firebase from '../server/server.js';
+
 
 class Messages extends React.Component{
+  constructor(){
+    super();
+    this.state = {
+      messages: []
+    }
+  }
+  componentDidMount(){
+    var ref = firebase.database().ref("messages");
+    var messagesData = [];
+    ref.on("value", function(snapshot) {
+      var data = snapshot.val();
+      for(var item in data){
+        messagesData.push(data[item]);
+      }
+    });
+    this.setState({
+      messages: messagesData
+    })
+  }
   render() {
-    console.log(this.props);
-    let messages = this.props.messages.map((x, i) => {
+    let messages = this.state.messages.map((x, i) => {
       return(
-        <div key={i} className="message">
-          <div className="user">{this.props.userName}</div>
-          <div className="bubble">{x}</div>
+        <div key={x + i} className="bubble">
+          <div className="user">{x.username}</div>
+          <div className="message">{x.message}</div>
         </div>
       )
     })
     return (
-      <div className="message-list">
-        {messages}
-      </div>
+      <div>{messages}</div>
+
     );
   }
 }
