@@ -11,7 +11,7 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      userName: ''
+      userName: '',
     }
   }
   handleChange(userName){
@@ -19,6 +19,7 @@ class App extends React.Component {
       userName: userName
     })
   }
+
   render() {
     return (
       <Router history={this.history}>
