@@ -11,4 +11,13 @@ var config = {
 
 firebase.initializeApp(config);
 
+// const port = process.env.PORT || 5003;
+//
+// app.use(express.static(path.resolve(__dirname, '../client/build')));
+//
+// app.listen(port, function(){
+//   console.log('listening on port', port);
+// });
+
+
 export default firebase;
