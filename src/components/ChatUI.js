@@ -19,13 +19,13 @@ class ChatUI extends React.Component {
     };
 
     // Get a key for a new Post.
-    var newPostKey = firebase.database().ref('messages').push().key;
+    var newPostKey = firebase.database().ref('/chat/messages/').push().key;
 
     // Write the new post's data simultaneously in the posts list and the user's post list.
     var updates = {};
     updates['/messages/' + newPostKey] = messageData;
 
-    return firebase.database().ref('messages').update(updates);
+    return firebase.database().ref('/chat').update(updates);
   }
 
   handleChange(evt){

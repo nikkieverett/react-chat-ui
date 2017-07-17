@@ -18,7 +18,7 @@ class App extends React.Component {
     }
   }
   componentDidMount(){
-    var ref = firebase.database().ref("messages/messages");
+    var ref = firebase.database().ref("/chat/messages");
     var messagesData = [];
     ref.on("child_added", function(snapshot) {
       var data = snapshot.val();
