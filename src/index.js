@@ -24,9 +24,11 @@ class App extends React.Component {
       var data = snapshot.val();
       messagesData.push(data);
     });
+    console.log('setting messages state');
+
     this.setState({
       messages: messagesData
-    })
+    });
   }
   handleChange(userName){
     this.setState({

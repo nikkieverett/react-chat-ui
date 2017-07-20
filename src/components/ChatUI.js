@@ -11,6 +11,11 @@ class ChatUI extends React.Component {
     }
   }
 
+  componentDidMount(){
+    return firebase.database().ref('/chat').update();
+
+  }
+
   writeNewPost(username, message) {
   // A post entry.
     var messageData = {
