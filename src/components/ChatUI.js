@@ -10,29 +10,22 @@ class ChatUI extends React.Component {
       input: '',
     }
   }
-
   componentDidMount(){
-    return firebase.database().ref('/chat').update();
-
+    // return firebase.database().ref('/chat');
   }
-
   writeNewPost(username, message) {
-  // A post entry.
+    // A post entry.
     var messageData = {
       username: this.props.userName,
       message: this.state.input
     };
-
     // Get a key for a new Post.
     var newPostKey = firebase.database().ref('/chat/messages/').push().key;
-
     // Write the new post's data simultaneously in the posts list and the user's post list.
     var updates = {};
     updates['/messages/' + newPostKey] = messageData;
-
     return firebase.database().ref('/chat').update(updates);
   }
-
   handleChange(evt){
     this.setState({
       input: evt.target.value

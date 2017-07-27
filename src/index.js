@@ -5,7 +5,6 @@ import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import firebase from './server/server.js';
 
-
 import ChatUI from './components/ChatUI.js';
 import LoginUI from './components/LoginUI.js';
 
@@ -24,10 +23,11 @@ class App extends React.Component {
       var data = snapshot.val();
       messagesData.push(data);
     });
-    console.log('setting messages state');
-
+    this.loadMessages(messagesData);
+  }
+  loadMessages(data){
     this.setState({
-      messages: messagesData
+      messages: data
     });
   }
   handleChange(userName){
@@ -36,11 +36,11 @@ class App extends React.Component {
     })
   }
   render() {
-    console.log(this.state.messages);
     return (
       <Router history={this.history}>
         <div className="page-container">
-          <Route path="/chat" render={() => <ChatUI userName={this.state.userName} messages={this.state.messages}/>}/>
+          <Route path="/chat" render={() => <ChatUI userName={this.state.userName} messages={this.state.messages}
+          newMessage={(data) => this.newMessage(data)}/>}/>
           <Route exact path="/" render={() => <LoginUI onChange={(userName) => this.handleChange(userName)}/>}/>
         </div>
       </Router>
